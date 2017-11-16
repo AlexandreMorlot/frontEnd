@@ -28,7 +28,7 @@ const vm = new Vue({
                 .then(response => {this.rooms = response.data});
             },
 
-
+        //test
         getLightOn() {
             let post_url = heroku_url_api + "/on" ;
             axios.post(post_url)
