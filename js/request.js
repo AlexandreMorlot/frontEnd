@@ -34,3 +34,5 @@ const vm = new Vue({
             axios.post(post_url)
                 .then(response => {this.rooms = response.data});
             },
+    }
+});
