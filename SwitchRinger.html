@@ -9,15 +9,18 @@
 </head>
 
 <body>
-	<div id="app" class="container" @load="getRingerOn()">
+	<div id="app" class="container">
 	<h3 class="text-center">List of noisy rooms</h3>
 	<table class="table">
 		<thead><tr>
 			<th scope="col">Room id</th>
-			<th scope="col"><select class="version-select">
-							<option v-for="room in rooms">{{room.id}}</option>
+			<th scope="col">
+			<select v-model="selectedRoom" class="version-select">
+							<option disabled value="">Please select one</option>
+							<template v-for="room in rooms">
+							<option v-if='room.noise.status == "ON"'>{{room.id}}</option></template>
 							</select></th>
-			<th><button class="bgtn btn-Ringer" @click="switchRinger(room)">
+			<th><button class="bgtn btn-Ringer" @click="switchRinger2(selectedRoom)">
 						Turn off
 					</button></th>
 		</tr></thead>

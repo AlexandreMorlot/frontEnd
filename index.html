@@ -56,20 +56,24 @@
 		<div class="tab">
 			<button class="tablinks" onclick="openTab('Building')">Building</button>
 			<button class="tablinks" onclick="openTab('Room')">Room</button>
-			<button class="tablinks" onclick="openTab('switchLight')">switchLight</button>
-			<button class="tablinks" onclick="openTab('switchRinger')">switchRinger</button>
+			<button class="tablinks" onclick="openTab('switchLight')">Light management</button>
+			<button class="tablinks" onclick="openTab('switchRinger')">Ringer management</button>
 		</div>
 		
 		<div id="Building" class = "tabcontent">
-			<iframe src="Building.html"></iframe>
+			<meta http-equiv="refresh">
+			<iframe src="Buildings.html"></iframe>
 		</div>
 		<div id="Room" class = "tabcontent">
+			<meta http-equiv="refresh">
 			<iframe src="Rooms.html"></iframe>
 		</div>
-		<div id="switchLight" class = "tabcontent">
+		<div id="switchLight" class = "tabcontent" @click="getLightOn()">
+			<meta http-equiv="refresh">
 			<iframe src="SwitchLight.html"></iframe>
 		</div>
-		<div id="switchRinger" class = "tabcontent">
+		<div id="switchRinger" class = "tabcontent" @click="getRingerOn()">
+			<meta http-equiv="refresh">
 			<iframe src="SwitchRinger.html"></iframe>
 		</div>
 	</div>
