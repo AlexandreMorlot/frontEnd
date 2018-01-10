@@ -1,13 +1,13 @@
-const heroku_url_buildings = "https://pacific-shelf-27750.herokuapp.com/api";
-const heroku_url_rooms = heroku_url_buildings + "/rooms";
+const heroku_url_rooms = "https://pacific-shelf-27750.herokuapp.com/api/rooms";
+const heroku_url_buildings = "https://pacific-shelf-27750.herokuapp.com/api/building";
 
 const req = new Vue({
     el: '#app',
     data: {
         rooms: [],
         selectedRoom: 0,
-		buildings : [],
-		selectedBuilding : 0
+		buildings: [],
+		selectedBuilding: "EF",
     },
     mounted() {
         axios.get(heroku_url_rooms)
@@ -41,6 +41,37 @@ const req = new Vue({
             axios.post(post_url, {roomId: room_id})
                 .then(response => {this.rooms = response.data});
         },
+		
+		getBuilding(building_name){
+			for (building of this.buildings) {
+				if(building.name == building_name){
+					return building
+					break;
+					}
+			}
+			return[-1,0,0]
+		},
+		
+		isInBuilding(building,room_id){
+			rooms=[]
+			for(i in building.rooms){
+				rooms.push(building.rooms[i]);
+			}
+			for (room of rooms){
+				if(room.id == room_id){
+					return true;
+					break;
+				}
+			}
+			return false;
+		},
+		isInSelectedBuilding(room_id){
+			var building = this.getBuilding(this.selectedBuilding);
+			a = this.isInBuilding(building,room_id);
+			return a;
+		},
+		
     }
+
 })
 

@@ -23,28 +23,29 @@
 		</tr></thead>
 		<tbody>
 			<form action="">
-			<tr v-for="room in rooms">
-				<th scope="row">{{room.id}}</th>
-				<td><div v-if="room.light.status == 'ON'"><img src="img/light-on.png"></div>
-					<div v-else-if="room.light.status == 'OFF'"><img src="img/light-off.png"></div>
-				</td>
-				<td>{{room.light.level}}</td>
-				<td><div v-if="room.noise.status == 'ON'"><img src="img/ringer-on.png"></div>
-					<div v-else-if="room.noise.status == 'OFF'"><img src="img/ringer-off.png"></div>
-				</td>
-				<td>{{room.noise.level}}</td>
-				<td><button class="bgtn btn-light" @click="switchLight(room)">
-						<img src="img/switch.png" width="50">
-					</button></td>
-				<td><button class="bgtn btn-light" @click="switchRinger(room)">
-					<img src="img/switch.png" width="50">
-					</button></td>
+			<template v-for="room in rooms">
+				<tr>
+						<th scope="row">{{room.id}}</th>
+						<td><div v-if="room.light.status == 'ON'"><img src="img/light-on.png"></div>
+							<div v-else-if="room.light.status == 'OFF'"><img src="img/light-off.png"></div>
+						</td>
+						<td>{{room.light.level}}</td>
+						<td><div v-if="room.noise.status == 'ON'"><img src="img/ringer-on.png"></div>
+							<div v-else-if="room.noise.status == 'OFF'"><img src="img/ringer-off.png"></div>
+						</td>
+						<td>{{room.noise.level}}</td>
+						<td><button class="bgtn btn-light" @click="switchLight2(room.id)">
+								<img src="img/switch.png" width="50">
+							</button></td>
+						<td><button class="bgtn btn-light" @click="switchRinger2(room.id)">
+							<img src="img/switch.png" width="50">
+							</button></td>
 				</tr>
+			</template>
 			</form>	
 		</tbody>
 		</table>
 	</div>
-
 	
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
